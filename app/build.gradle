@@ -1,22 +1,26 @@
-android {
-    compileSdkVersion 35
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android' // Add this if using Kotlin
+}
 
+android {
+    compileSdkVersion 34 // Use the latest SDK version you target (e.g., 34 for Android 14)
+    
     defaultConfig {
-        applicationId "com.example.mediaoutputtile"
-        minSdkVersion 24
-        targetSdkVersion 35
+        applicationId "com.example.mediaoutputtile" // Replace with your package name
+        minSdkVersion 21 // Minimum Android version your app supports
+        targetSdkVersion 34 // Target SDK version (should match compileSdkVersion)
         versionCode 1
         versionName "1.0"
     }
 
     buildTypes {
+        debug {
+            // Debug-specific configurations
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-}
-
-dependencies {
-    implementation 'androidx.appcompat:appcompat:1.6.1'
 }
