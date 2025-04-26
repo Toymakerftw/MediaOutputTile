@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch: # Allows manual triggering from GitHub UI
+  workflow_dispatch:
 
 jobs:
   build:
@@ -20,6 +20,9 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
           cache: 'gradle'
+
+      - name: Verify gradlew exists
+        run: ls -l ./gradlew || echo "gradlew not found!"
 
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
